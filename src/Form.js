@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { db } from "./Firebase";
+import {Button} from '@material-ui/core'
+import { storage } from './Firebase'
 import "./Form.css";
+import ImageUpload from './ImageUpload';
 
 function Form() {
      const [name, setName] =useState("")
@@ -25,10 +28,12 @@ function Form() {
      const [relation, setrelation] =useState("")
      const [gphone, setGphone] =useState("")
      const [parents, setParents] =useState("")
-     const [parentsname, setParentsName] =useState("")
+     const [parentsName, setParentsName] =useState("")
      const [parentsReltn, setParentsReltn] =useState("")
      const [parentsPhone, setParentsPhone] =useState("")
      const [loader, setLoader] = useState(false);
+     const [image, setImage] =useState(null)
+     const [progress, setProgress] = useState(0)
 
 
 
@@ -60,9 +65,10 @@ function Form() {
           relation : relation ,
           gphone : gphone ,
           parents : parents ,
-          parentsname : parentsname ,
+          parentsName : parentsName ,
           parentsReltn : parentsReltn ,
-          parentsPhone : parentsPhone
+          parentsPhone : parentsPhone,
+          
         })
         .then(() => {
           setLoader(false);
@@ -303,7 +309,7 @@ function Form() {
 
             <input
                     placeholder="Name"
-                     value={parentsname}
+                     value={parentsName}
                     onChange={(e) => setParentsName(e.target.value)} 
                 />
                 
@@ -337,15 +343,20 @@ function Form() {
 
 
       </div>
-    
-      
+     
+     
+      {/* <ImageUpload heading="Upload a passport size photo of the applicant" />
+      <ImageUpload heading= "Upload scanned copy of Birth Certificate" />
+    */}
       <button
         type="submit"
         style={{ background:  loader ? "#ccc" :  " rgb(2, 2, 110)" }}
       >
         Submit
       </button>
+      
     </form>
+    
     )
 }
 

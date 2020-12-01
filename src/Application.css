@@ -1,0 +1,36 @@
+.application > h1 {
+    color: teal;
+    margin: 10px !important;
+    position: relative !important;
+    left: 500px;
+}
+.student__applications > ul{
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  margin-right: 150px;
+} 
+.student__applications > ul > li >span{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+.student__applications > ul > li {
+    list-style: none;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.student__applications > h3{
+    text-transform: capitalize;
+}
+ .student__applications{
+   background-color: oldlace;
+   font-family: sans-serif;
+  /*  display: flex;
+   flex-wrap: wrap; */
+    margin: 60px;
+   
+   padding: 15px;
+
+} 
